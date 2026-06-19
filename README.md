@@ -1,23 +1,34 @@
 # FreakInViz
 
-Power BI ha dei visual di default. Funzionano, ma spesso non bastano — non per chi vuole che un report comunichi davvero, non solo mostri numeri.
+I visual predefiniti di Power BI sono ottimi per analisi standard, ma spesso mostrare i dati non basta: è necessario farli comunicare in modo efficace.
 
-Questo repo nasce per andare oltre: una raccolta di visual custom costruiti con Deneb (Vega-Lite e Vega), pensati per migliorare l'esperienza di chi legge i tuoi report. Ogni grafico è pronto da usare, open source, e pensato per essere punto di partenza — non punto di arrivo.
+**FreakInViz** è una raccolta open-source di grafici scritti in **Vega-Lite e Vega**, utilizzabili tramite il visual **Deneb** in Power BI. Il progetto nasce con un obiettivo chiaro: fornire agli sviluppatori Power BI strumenti avanzati per elevare la User Experience e l'impatto visivo dei propri report, superando i limiti dei grafici nativi.
+
+Ogni grafico è flessibile, ottimizzato per le performance e pensato per essere un punto di partenza pronto all'uso, ma completamente personalizzabile.
+
+---
 
 ## Grafici disponibili
 
 ### Funnel
-| Variante | Descrizione |
-|---|---|
-| [`funnel/classic/`](funnel/classic/) | Funnel centrato, minimal |
+- **`funnel/classic/`** — Grafico a imbuto centrato, dal design minimale e pulito. Ideale per tracciare conversioni, processi di vendita o flussi utente senza l'ingombro visivo del visual standard.
 
-## Come si usa
+---
 
-1. Apri la cartella del grafico che ti interessa
-2. Copia il file `.json` nell'editor di Deneb in Power BI
-3. Usa i dati di esempio nella cartella `data/` per testarlo, poi sostituisci con i tuoi
+## Come utilizzarli
+
+### In Power BI
+1. Apri la cartella del grafico che vuoi usare
+2. Copia il contenuto del file `.json`
+3. Incollalo nell'editor del visual Deneb in Power BI
+4. Per i primi test usa il dataset di esempio in `data/`, poi sostituiscilo con i tuoi campi
+
+### Nell'editor online
+Puoi testare e modificare i grafici direttamente nell'editor online di Vega, senza aprire Power BI. È utile per esplorare il codice e capire come funziona prima di portarlo nel report.
+
+---
 
 ## Requisiti
 
 - Power BI Desktop
-- Visual [Deneb](https://deneb-viz.github.io/) installato
+- Custom visual **Deneb** (disponibile gratuitamente su AppSource)
