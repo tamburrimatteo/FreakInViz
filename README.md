@@ -21,7 +21,3 @@ Questo repo nasce per andare oltre: una raccolta di visual custom costruiti con 
 
 - Power BI Desktop
 - Visual [Deneb](https://deneb-viz.github.io/) installato
-
----
-
-Fatto da [Matteo Tamburri](https://github.com/tamburrimatteo)
