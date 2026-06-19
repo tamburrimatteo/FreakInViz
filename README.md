@@ -24,4 +24,4 @@ Questo repo nasce per andare oltre: una raccolta di visual custom costruiti con 
 
 ---
 
-Fatto da [Matteo Tamburri](https://github.com/tamburrimatteo) · [freakinviz.com](https://freakinviz.com)
+Fatto da [Matteo Tamburri](https://github.com/tamburrimatteo)
