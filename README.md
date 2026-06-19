@@ -2,18 +2,17 @@
 
 Raccolta di visualizzazioni custom per Power BI, costruite con Deneb (Vega-Lite / Vega).
 
-## Struttura
+## Grafici disponibili
 
-| Cartella | Contenuto |
+| Cartella | Grafico |
 |---|---|
-| `Grafici Deneb/` | Specifiche JSON dei visual Deneb |
-| `Custom Visual/` | Visual custom Power BI (.pbiviz) |
-| `Sito/` | Sorgente del sito FreakInViz |
-| `Articoli/` | Bozze e materiale per articoli |
+| `funnel/` | Funnel classico centrato |
 
-## Utilizzo
+## Come usarlo
 
-Ogni grafico nella cartella `Grafici Deneb/` contiene la specifica JSON pronta da incollare nell'editor Deneb di Power BI.
+Ogni cartella contiene:
+- Il file `.json` con la specifica Vega/Deneb — da incollare nell'editor Deneb di Power BI
+- Una cartella `data/` con dati di esempio per testare il visual
 
 ---
 

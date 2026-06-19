@@ -7,6 +7,12 @@ Thumbs.db
 .DS_Store
 desktop.ini
 
+# Cartelle locali non destinate al repo
+Sito/
+Articoli/
+Custom Visual/
+Grafici Deneb/
+
 # Editor
 .vscode/
 *.tmp

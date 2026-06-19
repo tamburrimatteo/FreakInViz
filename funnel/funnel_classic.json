@@ -1,0 +1,124 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v6.json",
+  "autosize": {"type": "fit", "contains": "padding"},
+  "data": [
+    {
+      "name": "dataset",
+      "transform": [
+        {"type": "collect", "sort": {"field": "Value", "order": "descending"}},
+        {"type": "joinaggregate", "fields": ["Value"], "ops": ["max"], "as": ["topValue"]},
+        {"type": "formula", "expr": "datum.Value/datum.topValue", "as": "pct"}
+      ]
+    },
+    {
+      "name": "outline",
+      "source": "dataset",
+      "transform": [
+        {"type": "formula", "as": "edge", "expr": "['top','bottom']"},
+        {"type": "flatten", "fields": ["edge"]}
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "widthScale",
+      "type": "linear",
+      "domain": {"data": "dataset", "field": "Value"},
+      "range": {"signal": "[(width - gutter) * 0.14, width - gutter]"},
+      "domainMin": 0
+    },
+    {
+      "name": "stageScale",
+      "type": "band",
+      "domain": {"data": "dataset", "field": "Step"},
+      "range": "height",
+      "paddingInner": 0.4,
+      "paddingOuter": 0.3
+    },
+    {
+      "name": "colorScale",
+      "type": "ordinal",
+      "domain": {"data": "dataset", "field": "Step"},
+      "range": ["#d3e7e6", "#a6d0cd", "#6fb3af", "#3f928d", "#266d69", "#144f4b"]
+    }
+  ],
+  "signals": [
+    {"name": "cx", "update": "(width + gutter) / 2"},
+    {"name": "gutter", "update": "110"}
+  ],
+  "marks": [
+    {
+      "type": "area",
+      "from": {"data": "outline"},
+      "encode": {
+        "enter": {
+          "y": {"signal": "datum.edge === 'top' ? scale('stageScale', datum.Step) : scale('stageScale', datum.Step) + bandwidth('stageScale')"},
+          "x": {"signal": "cx - scale('widthScale', datum.Value) / 2"},
+          "x2": {"signal": "cx + scale('widthScale', datum.Value) / 2"},
+          "orient": {"value": "horizontal"},
+          "interpolate": {"value": "linear"},
+          "fill": {"value": "#e2efee"},
+          "tooltip": {"signal": "{'Stage': datum.Step, 'Utenti': format(datum.Value, ','), 'Conversione': format(datum.pct, '.0%')}"}
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "from": {"data": "dataset"},
+      "encode": {
+        "enter": {
+          "xc": {"signal": "cx"},
+          "y": {"scale": "stageScale", "field": "Step"},
+          "width": {"scale": "widthScale", "field": "Value"},
+          "height": {"scale": "stageScale", "band": 1},
+          "fill": {"scale": "colorScale", "field": "Step"},
+          "tooltip": {"signal": "{'Stage': datum.Step, 'Utenti': format(datum.Value, ','), 'Conversione': format(datum.pct, '.0%')}"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {"data": "dataset"},
+      "encode": {
+        "enter": {
+          "x": {"signal": "cx"},
+          "y": {"scale": "stageScale", "field": "Step", "band": 0.5},
+          "text": {"signal": "format(datum.Value, ',')"},
+          "align": {"value": "center"},
+          "baseline": {"value": "middle"},
+          "fontSize": {"value": 12},
+          "fontWeight": {"value": "bold"},
+          "fill": {"signal": "datum.pct < 0.42 ? '#ffffff' : '#0f3b38'"},
+          "tooltip": {"signal": "{'Stage': datum.Step, 'Utenti': format(datum.Value, ','), 'Conversione': format(datum.pct, '.0%')}"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {"data": "dataset"},
+      "encode": {
+        "enter": {
+          "x": {"signal": "gutter - 20"},
+          "y": {"scale": "stageScale", "field": "Step", "band": 0.5},
+          "text": {"signal": "datum.Step + ' - ' + format(datum.pct, '.0%')"},
+          "align": {"value": "right"},
+          "baseline": {"value": "middle"},
+          "fontSize": {"value": 12},
+          "fontWeight": {"value": "bold"},
+          "tooltip": {"signal": "{'Stage': datum.Step, 'Utenti': format(datum.Value, ','), 'Conversione': format(datum.pct, '.0%')}"}
+        }
+      }
+    },
+    {
+      "type": "rule",
+      "encode": {
+        "enter": {
+          "x": {"signal": "gutter - 10"},
+          "y": {"signal": "scale('stageScale', data('dataset')[0].Step)"},
+          "y2": {"signal": "scale('stageScale', peek(data('dataset')).Step) + bandwidth('stageScale')"},
+          "strokeWidth": {"value": 1}
+        }
+      }
+    }
+  ]
+}
