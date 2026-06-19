@@ -1,19 +1,22 @@
 # FreakInViz
 
-Raccolta di visualizzazioni custom per Power BI, costruite con Deneb (Vega-Lite / Vega).
+Custom Deneb visuals for Power BI — built with Vega-Lite and Vega.
 
-## Grafici disponibili
+Each chart lives in its own folder with the JSON spec ready to paste into Deneb, plus sample data to get started without touching your own dataset.
 
-| Cartella | Grafico |
+## Charts
+
+### Funnel
+| Variant | Description |
 |---|---|
-| `funnel/` | Funnel classico centrato |
+| [`funnel/classic/`](funnel/classic/) | Centered funnel, clean and minimal |
 
-## Come usarlo
+## How to use
 
-Ogni cartella contiene:
-- Il file `.json` con la specifica Vega/Deneb — da incollare nell'editor Deneb di Power BI
-- Una cartella `data/` con dati di esempio per testare il visual
+1. Open the folder for the chart you want
+2. Copy the `.json` spec into Deneb's editor in Power BI
+3. Use the sample data in `data/` to test it, then swap in your own
 
 ---
 
-*by [tamburrimatteo](https://github.com/tamburrimatteo)*
+Made by [Matteo Tamburri](https://github.com/tamburrimatteo) · [FreakInViz](https://freakinviz.com)
