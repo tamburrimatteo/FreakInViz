@@ -13,7 +13,7 @@ Ogni grafico è flessibile, ottimizzato per le performance e pensato per essere 
 ### Funnel
 Ideale per tracciare conversioni, processi di vendita o flussi utente.
 
-- **`funnel/classic/`** — Grafico funnel base, centrato con design minimale e tooltip standard.
+- **`classic/`** — Grafico base, centrato con design minimale e tooltip standard.
 
 ---
 
