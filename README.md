@@ -11,7 +11,9 @@ Ogni grafico è flessibile, ottimizzato per le performance e pensato per essere 
 ## Grafici disponibili
 
 ### Funnel
-- **`funnel/classic/`** — Grafico a imbuto centrato, dal design minimale e pulito. Ideale per tracciare conversioni, processi di vendita o flussi utente senza l'ingombro visivo del visual standard.
+Ideale per tracciare conversioni, processi di vendita o flussi utente.
+
+- **`funnel/classic/`** — Grafico funnel base, centrato con design minimale e tooltip standard.
 
 ---
 
