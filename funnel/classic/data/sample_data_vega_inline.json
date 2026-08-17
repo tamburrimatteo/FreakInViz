@@ -1,8 +1,0 @@
-[
-  { "Step": "Impressions", "Value": 10000 },
-  { "Step": "Clicks",      "Value": 7000 },
-  { "Step": "Sessions",    "Value": 5000 },
-  { "Step": "Add to Cart", "Value": 2500 },
-  { "Step": "Checkout",    "Value": 1200 },
-  { "Step": "Purchase",    "Value": 600 }
-]
